@@ -1,0 +1,2 @@
+module Amin::OrdersHelper
+end
