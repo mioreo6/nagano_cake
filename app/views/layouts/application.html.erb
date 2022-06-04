@@ -11,7 +11,55 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-   
+   <header>
+      <nav class="navbar navbar-expand-lg navbar-#FFE4E1 bg-#FFE4E1">
+      <div class="container">
+      <a class="navbar-brand p-3 h-25" href="/"><%= image_tag('log.png') %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+      <ul class="navbar-nav ml-auto">
+      <% if admin_signed_in? %>
+      <li class="nav-item">
+      </li>
+      <li class="nav-item">
+      </li>
+      <li class="nav-item">
+      </li>
+      <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+      <% elsif customer_signed_in? %>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+      <% else %>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+       <li class="nav-item">
+      </li>
+      <% end %>
+      </ul>
+      </div>
+      </div>
+      </nav>
+      </header>
+      <main>
     <%= yield %>
+    </main>
   </body>
+
 </html>
