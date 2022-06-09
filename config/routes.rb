@@ -9,14 +9,10 @@ Rails.application.routes.draw do
     get 'customers/show'
   end
   namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
+    resources :genres, only: [:index, :create, :edit, :update]
   end
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items, except: [:destroy]
   end
   namespace :admin do
     get 'homes/top'
