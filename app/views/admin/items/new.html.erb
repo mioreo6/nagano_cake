@@ -16,11 +16,12 @@
     </div>
     <div  class="row">
       <label>ジャンル</label>
+      <%= f.collection_select :genre_id, Genre.all, :genre_id, :genre, include_blank: "選択してください" %>
 
     </div>
     <div  class="row">
       <label>税抜価格</label>
-      <%= f.number_field :price %>
+      <%= f.number_field :price %>円
     </div>
     <div  class="row">
       <label>販売ステータス</label>
