@@ -3,13 +3,15 @@
   <div class="row">
     <h5>商品詳細</h5>
     <div class="col-4">
-      <%= @item.image %>
+      <%= image_tag @item.image %>
     </div>
     <div class="col-7">
-     <div>商品名<%= @item.name%></div>
-     <div>商品説明<%= @item.introduction %></div> 
-     <div>ジャンル<%= @item.genre_id %></div> 
-     <div><%= %></div> 
+     <div><label>商品名</label><%= @item.name%></div>
+     <div><label>商品説明</label><%= @item.introduction %></div>
+     <div><label>ジャンル</label><%= @item.genre_id %></div>
+     <div><label>税込価格(税抜価格)</label><%= @item.add_tax_price.to_s(:dalimited) %>(<%= @item.price %>)円</div>
+     <div><label>販売ステータス</label><span class="text-success font-weight-bold"><%= @item.is_active ? '販売中' : '販売停止中' %></span></div>
+     <div><%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %></div>
     </div>
   </div>
 </div>

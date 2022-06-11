@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
   end
   namespace :admin do
-    resources :items, except: [:destroy]
+    resources :items, except: [:destroy, :update]
+    patch 'item/:id' => 'items#update', as: 'update_item'
   end
   namespace :admin do
     get 'homes/top'

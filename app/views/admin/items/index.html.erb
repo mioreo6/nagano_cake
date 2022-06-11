@@ -16,18 +16,21 @@
       <th>ステータス</th>
     </tr>
   </thead>
-  <% @items.each do |item| %>
+
   <tbody>
+    <% @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
-      <td><%= link_to item.name, admin_show_item_path(item.id) %></td>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td><%= item.price %></td>
       <td><%= item.genre_id %></td>
       <td></td>
-
     </tr>
+    <% end %>
   </tbody>
 </table>
-<% end %>
+
 </div>
+
 </div>
+<%= paginate @items %>
