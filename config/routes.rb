@@ -1,32 +1,24 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/index'
+  resources :orders, only: [:new, :confirm, :complete, :index, :create]
   end
   namespace :public do
-    get 'cart_items/index'
+  resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
   end
   namespace :public do
-    get 'items/index'
-    get 'items/show'
-    get 'items/unsubscribe'
-    get 'items/withdraw'
+  resources :items, only: [:index, :show]
   end
   namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
+   resources :customers, only: [:show, :edit, :unsubscribe, :withdraw, :update]
   end
   namespace :public do
-    get 'homes/top'
-    get 'homes/about'
+   resources :homes, only: [:top, :about]
   end
+  
   namespace :admin do
    resources :orders, only: [:show, :update]
   end
