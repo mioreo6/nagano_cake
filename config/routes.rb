@@ -1,7 +1,34 @@
 Rails.application.routes.draw do
 
-  namespace :amin do
-    get 'orders/show'
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+  namespace :public do
+    get 'orders/new'
+    get 'orders/confirm'
+    get 'orders/complete'
+    get 'orders/index'
+  end
+  namespace :public do
+    get 'cart_items/index'
+  end
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+    get 'items/unsubscribe'
+    get 'items/withdraw'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :public do
+    get 'homes/top'
+    get 'homes/about'
+  end
+  namespace :admin do
+   resources :orders, only: [:show, :update]
   end
   namespace :admin do
    resources :customers, only: [:index, :show, :edit, :update]
