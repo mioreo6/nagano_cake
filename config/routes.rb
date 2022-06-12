@@ -16,9 +16,10 @@ Rails.application.routes.draw do
    resources :customers, only: [:show, :edit, :unsubscribe, :withdraw, :update]
   end
   namespace :public do
-   resources :homes, only: [:top, :about]
+   get 'homes/top'
+   get 'homes/about'
   end
-  
+
   namespace :admin do
    resources :orders, only: [:show, :update]
   end
