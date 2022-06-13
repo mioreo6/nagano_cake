@@ -9,7 +9,11 @@
   <div class="row"><label>住所</label><%= @customer.address %></div>
   <div class="row"><label>電話番号</label><%= @customer.telephone_number %></div>
   <div class="row"><label>メールアドレス</label><%= @customer.email %></div>
-  <div class="row"><label>会員ステータス</label><%= %></div>
+  <div class="row"><label>会員ステータス</label>
+          <% if @customer.is_deleted == false %><span class="text-success font-weight-bold">有効</span>
+          <% else %><span class="text-secondary font-weight-bold">退会</span>
+          <% end %>
+  </div>
   <div><%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success" %></div>
   <div><%= link_to "注文履歴一覧を見る", admin_customers_path, class:"btn btn-primary" %></div>
 </div>
