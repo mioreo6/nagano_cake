@@ -2,5 +2,57 @@
   <div class="row mx-auto">
     <h5>注文履歴詳細</h5>
   </div>
-  <div class=""></div>
+  <div class="row">
+    <span>購入者</span>
+    <%= link_to admin_customer_path(@order.customer.id) do %>
+    <%= @order.customer.last_name %>
+    <%= @order.customer.first_name %>
+    <% end %>
+    </div>
+    <div class="row">
+      <span>注文日</span>
+      <%= @order.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div class="row">
+      <span>配送先</span>
+      〒<%= @order.postal_code %><%= @order.address %></br>
+      <%= @order.name %>
+    </div>
+    <div class="row">
+      <span>支払方法</span>
+    </div>
+    <div class="row">
+      <span>注文ステータス</span>
+    </div>
+</div>
+<div class="row">
+  <table class="table col-7">
+  <thead class="table-secondary">
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_detail.each do |order_detail| %>
+    <tr>
+      <td><%= order_detail.item.name %></td>
+      <td><%= order_detail.item.add_tax_price %></td>
+      <td><%= order_detail.amount %></td>
+      <td><%= order_detail.order.sum_price %></td>
+      <td></td>.
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="col-5">
+  <label>商品合計</label><%= @order.total %>円</br>
+  <label>送料</label><%= @order.postage %>円</br>
+  <label>請求金額合計</label><%= @order.price %>円
+</div>
 </div>
