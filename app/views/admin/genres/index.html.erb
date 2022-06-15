@@ -9,10 +9,10 @@
 </div>
 <div class="row">
 
-<table class="table col-6">
+<table class="table col-4">
   <thead class="table-secondary">
     <tr>
-      <th>ジャンル</th>
+      <th><div class="text-center">ジャンル</div></th>
       <th></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
   <tbody>
     <tr>
       <td><%= genre.name %></td>
-      <td><%= link_to "Edit", edit_admin_genre_path(genre.id), class:"btn btn-success" %></td>
+      <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class:"btn btn-success" %></td>
     </tr>
   </tbody>
 
