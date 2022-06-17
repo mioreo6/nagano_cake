@@ -1,12 +1,13 @@
-<div class="container px-2">
-  <div class="row" style="width: 80%;">
+<div class="container pt-3">
+  <div clasas="row">
+  <h5 style="display:inline;">商品一覧</h5>
 
-  <h5>商品一覧</h5>
-  <span class="text-right">
-  <button onclick="location.href='items/new'", type="button" class="btn btn-secondary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
-  </span>
+  <button onclick="location.href='items/new'", type="button" class="btn btn-secondary rounded-circle p-0 " style="width:2rem;height:2rem;">＋</button>
+
   </div>
-  <div class="row">
+<div class="row">
+
+<div class="mx-auto col-12 mt-3">
   <table class="table">
   <thead class="table-secondary">
     <tr>
@@ -33,7 +34,11 @@
   </tbody>
 </table>
 
+<%= paginate @items %>
+
 </div>
 
-<div class="row mx-auto"><%= paginate @items %></div>
+
+
+</div>
 </div>
