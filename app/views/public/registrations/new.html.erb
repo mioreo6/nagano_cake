@@ -1,31 +1,33 @@
-<h5>新規会員登録</h5>
-<div class="container pt-3">
 
+<div class="container pt-3">
+<h5 class="col-2 text-center ml-5 mb-5" style="background-color: #ddd;">新規会員登録</h5>
  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
 
    <label class="col-md-2"><%= f.label '名前' %></label>
   <label class="col-md-1 text-right">(姓)</label>
-  <%= f.text_field :last_name %>
-    (名)<%= f.text_field :first_name %></br>
+  <%= f.text_field :last_name, placeholder: "令和"%>
+<label class="col-md-1 text-right">(名)</label>
+    <%= f.text_field :first_name, placeholder: "道子" %></br>
 
    <label class="col-md-2"> <%= f.label 'フリガナ' %></label>
-  <label class="col-md-1 text-right"> (セイ)</label>
-  <%= f.text_field :last_name_kana %>
-    (メイ)<%= f.text_field :first_name_kana %></br>
+  <label class="col-md-1 text-right">(セイ)</label>
+  <%= f.text_field :last_name_kana, placeholder: "レイワ" %>
+     <label class="col-md-1 text-right">(メイ)</label>
+     <%= f.text_field :first_name_kana, placeholder: "ミチコ" %></br>
 
 
    <label class="col-md-3"> <%= f.label 'メールアドレス' %></label>
-   <%= f.email_field :email, autofocus: true, autocomplete: "email" %></br>
+   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Sample@example.com"%></br>
 
    <label class="col-md-3"> <%= f.label '郵便番号(ハイフンなし)' %></label>
-   <%= f.number_field :postal_code %></br>
+   <%= f.number_field :postal_code, placeholder: "0000000" %></br>
 
    <label class="col-md-3"> <%= f.label '住所' %></label>
-   <%= f.text_field :address %></br>
+   <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園0-0", :size=> "60" %></br>
    <label class="col-md-3"> <%= f.label '電話番号(ハイフンなし)' %></label>
-       <%= f.telephone_field :telephone_number%></br>
+    <%= f.telephone_field :telephone_number, placeholder: "00000000000"%></br>
 
    <label class="col-md-3"> <%= f.label 'パスワード' %>
       <% if @minimum_password_length %>
@@ -39,7 +41,7 @@
 
 
   <label class="col-md-3"></label>
-      <%= f.submit "新規登録" %>
+     <span class="px-3"> <%= f.submit "新規登録" %></span>
     <% end %>
 
 
@@ -47,6 +49,6 @@
 
 
 
-<h5>既に登録済みの方</h5>
+<h5 class="col-3 text-center mt-4" style="background-color: #ddd;">既に登録済みの方</h5>
 <%= render "public/shared/links" %>からログインしてください。
   </div>
