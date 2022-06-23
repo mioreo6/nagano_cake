@@ -1,2 +1,53 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container pt-3">
+  <div class="row">
+<h5  class="ml-5 col-2 text-center" style="background-color: #ddd;">マイページ</h5>
+</div>
+</div>
+ <div class="form-group row">
+    <label class="col-1 ml-4 font-weight-bold">登録情報</label>
+   <div class="col-md-1"><%= link_to "編集する", edit_public_customer_path(@customer.id), class:"btn btn-success btn-sm" %> </div>
+</div>
+
+ <div class="row pl-4">
+   <table class="col-7 ml-4 table table-bordered border-dark" >
+   <tr>
+     <td class="table-secondary col-3">氏名</td>
+    　<td><%= @customer.last_name %> <%= @customer.first_name %></td>
+   </tr>
+    <tr>
+     <td class="table-secondary">カナ</td>
+    　<td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+   </tr>
+
+    <tr>
+     <td class="table-secondary">郵便番号</td>
+    　<td><%= @customer.postal_code %></td>
+   </tr>
+
+    <tr>
+     <td class="table-secondary">住所</td>
+    　<td><%= @customer.address %></td>
+   </tr>
+
+    <tr>
+     <td class="table-secondary">電話番号</td>
+    　<td><%= @customer.telephone_number %></td>
+   </tr>
+
+    <tr>
+     <td class="table-secondary">メールアドレス</td>
+    　<td><%= @customer.email %></td>
+   </tr>
+
+   </table>
+　</div>
+
+ <div class="form-group row">
+    <label class="col-1 ml-4 font-weight-bold">配送先</label>
+   <div class="col-md-1"><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary btn-sm" %> </div>
+</div>
+
+ <div class="form-group row">
+    <label class="col-1 ml-4 font-weight-bold">注文履歴</label>
+   <div class="col-md-1"><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary btn-sm" %> </div>
+</div>
