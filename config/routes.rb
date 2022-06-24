@@ -35,7 +35,9 @@ namespace :public do
   resources :orders, only: [:new, :confirm, :complete, :index, :create]
   resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
   resources :items, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :unsubscribe, :withdraw, :update]
+  resources :customers, only: [:show, :edit, :update]
+  get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+  patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
