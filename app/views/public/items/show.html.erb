@@ -18,10 +18,13 @@
    <span class="font-weight-bold"><%= @item.name %></span></br>
    <%= @item.introduction %></br>
    ￥<%= @item.add_tax_price %>(税込)</br>
-   <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local: true do |f| %>
-   <%= f.hidden_field :item_id, :value => @item.id %>
-   <%= f.select :amount, *[1..9] %>
-   <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+   <% if @item.is_active == true %>
+    <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local: true do |f| %>
+    <%= f.label :quantity, "個数選択" %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+    <% end %>
    <% end %>
 
 

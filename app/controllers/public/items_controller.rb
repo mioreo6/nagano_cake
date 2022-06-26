@@ -8,17 +8,19 @@ class Public::ItemsController < ApplicationController
   def show
     @genres = Genre.all
     @item = Item.find(params[:id])
+    @cart_item = CartItem
   end
-  
-  def create
-   @item = Item.new(item_params)
-   @item.save
-   redirect_to public_cart_items_path
-  end
+
+
 
   def unsubscribe
   end
 
   def withdraw
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:genre_id, :amount, :name, :introduction, :price)
   end
 end

@@ -32,11 +32,12 @@ namespace :public do
   root to: "homes#top"
   get 'about' => 'homes#about', as: 'about'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :orders, only: [:new, :confirm, :complete, :index, :create]
+  resources :orders, only: [:new, :confirm, :index, :create]
   resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update]
   get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+  get 'orders/complete' => 'orders#complete'
   patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
