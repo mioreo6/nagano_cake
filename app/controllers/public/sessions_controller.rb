@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :authenticate_customer!, except: [:top, :about]
   before_action :customer_state, only: [:create]
 
   # GET /resource/sign_in
@@ -35,6 +36,9 @@ class Public::SessionsController < Devise::SessionsController
      public_customer_path(current_customer)
     end
 
+    def after_sign_out_path_for(resource)
+     new_customer_session_path
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
