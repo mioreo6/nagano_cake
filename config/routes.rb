@@ -32,7 +32,7 @@ namespace :public do
   root to: "homes#top"
   get 'about' => 'homes#about', as: 'about'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :orders, only: [:new, :confirm, :index, :create]
+  resources :orders, only: [:new, :confirm, :index, :create, :show]
   resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all]
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update]
