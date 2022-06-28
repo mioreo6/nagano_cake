@@ -4,6 +4,7 @@ class Public::ItemsController < ApplicationController
     @items = Item.page(params[:page])
     @item = Item.all
   end
+  
 
   def show
     @genres = Genre.all

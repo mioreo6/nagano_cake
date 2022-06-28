@@ -1,14 +1,15 @@
 class Public::CartItemsController < ApplicationController
   def index
       @cart_items = CartItem.all
-      @cart_item = CartItem.find(cart_item_params)
-      @item = @cart_item.item
+      @cart_item = CartItem.where(customer_id: current_customer.id)
+
 
   end
 
   def create
    #binding.pry
    @cart_item = CartItem.new(cart_item_params)
+  
    @cart_item.customer_id = current_customer.id
    @cart_item.save
    redirect_to public_cart_items_path
