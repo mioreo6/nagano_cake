@@ -14,8 +14,9 @@
  <div>
    <h5>お届け先</h5>
    <%= f.radio_button :address, :address %><%= f.label "ご自身の住所" %></br>
-   〒<%= @orders.customer.postal_code %>　<%= @orders.customer.address %></br>
-   <%= @orders.customer.name %>
+   〒<%= @customer.postal_code %>　<%= @customer.address %></br>
+   <%= @customer.name %>
+   <%= f.radio_button :address, :address %><%= f.label "登録済住所から選択" %></br>
 
 
  </div>
