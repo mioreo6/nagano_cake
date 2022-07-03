@@ -1,9 +1,9 @@
 <div class="container pt-3">
 
   <h5  class="ml-5 col-2 text-center" style="display:inline; background-color: #ddd;">商品一覧</h5>
-
-  <button onclick="location.href='items/new'", type="button" class="btn btn-secondary rounded-circle p-0 " style="width:2rem;height:2rem; margin-right: 0px;">＋</button>
-
+<div class="text-right">
+  <button onclick="location.href='items/new'", type="button" class="btn btn-light shadow text-dark  rounded-circle p-0 " style="width:2rem;height:2rem; margin-right: 0px;">＋</button>
+</div>
 
 <div class="row">
 
@@ -34,11 +34,11 @@
   </tbody>
 </table>
 
-<%= paginate @items %>
+
 
 </div>
-
-
-
+</div>
+<div class="col-1 mx-auto">
+<%= paginate @items %>
 </div>
 </div>
