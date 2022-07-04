@@ -1,39 +1,39 @@
 <div class="container px-2 px-sm-0">
-  <div class="row">
- <h5 style="background-color: #ddd;">会員情報編集</h5>
-  </div>
+
+ <h5 class="col-2 text-center mb-5" style="background-color: #ddd;">会員情報編集</h5>
 
    <%= form_with model: @customer, url: customers_path, method: :patch, local: true do |f| %>
 
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">氏名</label>
-    <%= f.text_field :last_name%>
+    <%= f.text_field :last_name, class:"mr-4"%>
      <%= f.text_field :first_name%>
   </div>
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">フリガナ</label>
-    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :last_name_kana, class:"mr-4"%>
     <%= f.text_field :first_name_kana %>
   </div>
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">郵便番号</label>
     <div><%= f.number_field :postal_code %></div>
   </div>
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">住所</label>
     <%= f.text_field :address, :size=> "60" %>
   </div>
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">電話番号</label>
     <%= f.phone_field :telephone_number%>
   </div>
-   <div class="row">
+   <div class="row mb-2">
     <label class="col-2">メールアドレス</label>
     <%= f.email_field :email %>
   </div>
-   <div class="row">
+   <div class="row mb-2">
      <label class="col-2"></label>
-     <input class="btn btn-success" type="submit" Value="編集内容を保存" >
+      <%= f.submit '編集内容を保存', class:"btn btn-success px-5 mr-5"%>
+      <%= link_to "退会する", unsubscribe_path, class:"btn btn-danger px-3 ml-5" %>
   </div>
   <% end %>
   </div>
