@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :authenticate_customer!, except: [:top, :about, :create]
+
   before_action :customer_state, only: [:create]
 
   # GET /resource/sign_in

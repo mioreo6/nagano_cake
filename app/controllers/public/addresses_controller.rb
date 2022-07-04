@@ -1,18 +1,21 @@
 class Public::AddressesController < ApplicationController
-
+ before_action :authenticate_customer!
   def index
     @address = Address.new
     @addresses = Address.all
   end
 
-  def new
-    @address = Address.new
-  end
+
 
   def create
     @address = Address.new(address_params)
-    @address.save
-    redirect_to public_addresses_path
+    if @address.save
+    redirect_to root_path
+    else
+    @addresses = Address.all
+    @address = Address.new
+    render :index
+    end
   end
 
   def edit
@@ -22,11 +25,11 @@ class Public::AddressesController < ApplicationController
   def update
     address = Address.find(params[:id])
     address.update(address_params)
-    redirect_to public_address_path
+    redirect_to addresses_path
   end
 
   private
   def address_params
-    params.require(:address).permit(:postal_code, :address, :name)
+    params.require(:address).permit(:postal_code, :address, :name, :id, :customer_id)
   end
 end

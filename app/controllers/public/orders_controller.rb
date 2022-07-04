@@ -1,8 +1,9 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
   def new
     @order = Order.new
    @customer.customer_id = current_customer.id
-   
+
   end
 
   def confirm

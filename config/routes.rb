@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :index, :create, :show], module: 'public'
   post 'orders/confirm' => 'public/orders#confirm'
   get 'orders/complete' => 'public/orders#complete'
-  resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all], module: 'piblic'
+  resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all], module: 'public'
   delete 'cart_items' => 'public/cart_items#destroy_all'
   resources :items, only: [:index, :show], module: 'public'
   get 'customers/show' => 'public/customers#show'

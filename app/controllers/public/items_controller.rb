@@ -1,10 +1,11 @@
 class Public::ItemsController < ApplicationController
+   before_action :authenticate_customer!,except: [:index, :show]
   def index
     @genres = Genre.all
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).per(8)
     @item = Item.all
   end
-  
+
 
   def show
     @genres = Genre.all
