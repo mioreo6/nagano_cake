@@ -11,12 +11,18 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-    redirect_to root_path
+    redirect_to addresses_path
     else
     @addresses = Address.all
     @address = Address.new
     render :index
     end
+  end
+  
+  def destroy
+    address = Address.find(params[:id])
+    address.destroy
+    redirect_to addresses_path
   end
 
   def edit
