@@ -10,7 +10,8 @@ class Public::ItemsController < ApplicationController
   def show
     @genres = Genre.all
     @item = Item.find(params[:id])
-    @cart_item = CartItem
+    @cart_item = CartItem.new
+    @cart_item.customer_id = current_customer.id
   end
 
 
