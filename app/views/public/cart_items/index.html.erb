@@ -16,7 +16,7 @@
       <td class="col-2"><%= cart_item.item.add_tax_price %></td>
       <td class="col-2"> <%= form_with model: @cart_item, url: cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
 
-  　　　　　　　　 <%= f.select :amount,  *[1..9], prompt: cart_item.amount %>
+  　　　　　　　　 <%= f.select :amount,  *[1..9], placheholder: cart_item.amount %>
   　　　　 　　<%= f.hidden_field :item_id, :value => @item_id %>
   　       <%= f.submit '変更', class:"btn btn-success" %>
    　　　　　　<% end %>
