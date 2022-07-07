@@ -3,7 +3,7 @@ class Public::CartItemsController < ApplicationController
   def index
       @cart_items = CartItem.all
       @cart_item = CartItem.where(customer_id: current_customer.id)
-
+      @total = 0
 
   end
 

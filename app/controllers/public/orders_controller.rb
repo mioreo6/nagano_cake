@@ -2,8 +2,8 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
   def new
     @order = Order.new
-   @customer.customer_id = current_customer.id
-
+    @orders= current_customer
+    
   end
 
   def confirm
@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
 
  private
   def order_params
-    params.require(:order).permit(:customer_id)
+    params.require(:order).permit(:customer_id, :id)
   end
 
 end
