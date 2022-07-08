@@ -10,7 +10,9 @@ class Order < ApplicationRecord
       item.add_tax_price * order_details.amount
   end
 
-  def total
-    price - postage
+
+
+  def total_payment
+    shipping_cost + total
   end
 end

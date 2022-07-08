@@ -1,2 +1,33 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<div class="container pt-3">
+  <h5 class="col-3 text-center mb-3 ml-5" style="background-color: #ddd;">注文情報確認</h5>
+  <div class="row">
+  　<table class="table table-bordered col-8">
+   　 <tr class="table-secondary">
+      <td class="col-4" style="background-color: #ddd;">商品名</td>
+      <td class="col-2" style="background-color: #ddd;">単価(税込)</td>
+      <td class="col-2" style="background-color: #ddd;">数量</td>
+      <td class="col-2" style="background-color: #ddd;">小計</td>
+      </tr>
+       <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td><%= image_tag cart_item.item.image, class:"img-fluid col-2" %><%= cart_item.item.name %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.item.add_tax_price %></td>
+      <td><%= cart_item.subtotal %> </td>
+      <% @total += cart_item.subtotal %>
+    </tr>
+       <% end %>
+       </table>
+       <table class="table table-bordered col-4">
+       　 <tr class="table-secondary">
+       　   <td class="col-2" style="background-color: #ddd;">送料</td>
+       　   <td><%= @shipping_cost %></td>
+       　</tr>
+       　<tr>
+       　  <td class="col-2" style="background-color: #ddd;">商品合計</td>
+       　  <td><%= @total %></td>
+       　</tr>
+       　<tr>
+       　  <td class="col-2" style="background-color: #ddd;">請求金額</td>
+       　  <td><%= @order.total_payment %></td>
+       　</tr>
