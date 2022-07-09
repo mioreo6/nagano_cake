@@ -1,12 +1,15 @@
 <div class="container pt-3">
   <h5 class="col-3 text-center mb-3 ml-5" style="background-color: #ddd;">注文情報確認</h5>
+
   <div class="row">
-  　<table class="table table-bordered col-8">
+
+  <div class="col-7">
+  　<table class="table table-bordered ">
    　 <tr class="table-secondary">
-      <td class="col-4" style="background-color: #ddd;">商品名</td>
-      <td class="col-2" style="background-color: #ddd;">単価(税込)</td>
-      <td class="col-2" style="background-color: #ddd;">数量</td>
-      <td class="col-2" style="background-color: #ddd;">小計</td>
+      <td class="col-3" style="background-color: #ddd;">商品名</td>
+      <td class="col-1" style="background-color: #ddd;">単価(税込)</td>
+      <td class="col-1" style="background-color: #ddd;">数量</td>
+      <td class="col-1" style="background-color: #ddd;">小計</td>
       </tr>
        <% @cart_items.each do |cart_item| %>
     <tr>
@@ -18,16 +21,40 @@
     </tr>
        <% end %>
        </table>
-       <table class="table table-bordered col-4">
-       　 <tr class="table-secondary">
-       　   <td class="col-2" style="background-color: #ddd;">送料</td>
-       　   <td><%= @shipping_cost %></td>
+    </div>
+
+
+       <% @total_payment = @total + @shipping_cost%>
+
+      <div class="col-4">
+       <table class="table table-bordered">
+       　 <tr>
+       　   <td class="col-1" style="background-color: #ddd;">送料</td>
+       　   <td class="col-1"><%= @shipping_cost %></td>
        　</tr>
        　<tr>
-       　  <td class="col-2" style="background-color: #ddd;">商品合計</td>
-       　  <td><%= @total %></td>
+       　  <td class="col-1" style="background-color: #ddd;">商品合計</td>
+       　  <td class="col-1"><%= @total %></td>
        　</tr>
        　<tr>
-       　  <td class="col-2" style="background-color: #ddd;">請求金額</td>
-       　  <td><%= @order.total_payment %></td>
+       　  <td class="col-1" style="background-color: #ddd;">請求金額</td>
+       　  <td class="col-1"><%= @total_payment %></td>
        　</tr>
+       </table>
+       </div>
+    </div>
+     <div class="row">
+       <div>
+         <span class="font-weight-bold">支払方法</span>
+         <%= @order.payment_method_i18n %></br>
+       </div>
+
+       <div >
+          <span class="font-weight-bold">お届け先</span>
+         <%= @order.address %>
+       </div>
+
+     </div>
+
+
+    </div>

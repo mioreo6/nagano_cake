@@ -3,14 +3,21 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @orders= current_customer
+  end
 
+  def create
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to orders_confirm_path
   end
 
   def confirm
     @cart_items = CartItem.all
     @shipping_cost = 800
     @total = 0
-    @order = Order.where(customer_id: current_customer.id)
+    @order = Order.new
+    @order.customer_id = current_customer.id
+
   end
 
   def complete

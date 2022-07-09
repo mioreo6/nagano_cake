@@ -12,7 +12,5 @@ class Order < ApplicationRecord
 
 
 
-  def total_payment
-    shipping_cost + total
-  end
+  
 end
