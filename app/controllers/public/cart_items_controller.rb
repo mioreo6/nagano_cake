@@ -3,8 +3,6 @@ class Public::CartItemsController < ApplicationController
   def index
       @cart_items = CartItem.all
       @cart_item = CartItem.where(customer_id: current_customer.id)
-      
-
       @total = 0
 
   end
@@ -19,6 +17,7 @@ class Public::CartItemsController < ApplicationController
 
   def update
    @cart_item = CartItem.find(params[:id])
+   @item_id = @cart_item.item.id
    @cart_item.update(cart_item_params)
    redirect_to cart_items_path
   end

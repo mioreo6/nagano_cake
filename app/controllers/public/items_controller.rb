@@ -12,7 +12,7 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
-    @cart_item.customer_id = current_customer.id
+    # @cart_item.customer_id = current_customer.id
     @item_id = @item.id
   end
 

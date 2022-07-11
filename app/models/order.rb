@@ -10,7 +10,11 @@ class Order < ApplicationRecord
       item.add_tax_price * order_details.amount
   end
 
+  def delivery_address
+      "〒" + self.postal_code + "　" + self.address + "　" + self.name
+  end
 
 
-  
+
+
 end
