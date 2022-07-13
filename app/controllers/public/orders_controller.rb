@@ -7,12 +7,12 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.shipping_cost = 800
     @order.save
-    redirect_to orders_confirm_path
+    redirect_to orders_complete_path
   end
 
   def confirm
-
     @total = 0
     @cart_items = CartItem.all
     @order = Order.new(order_params)
@@ -22,19 +22,26 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:address_option] == "1"
-      address = Address.find([:address_id])
-      @order.delivery_address = address.add_address
-    elsif params[:address_option] == "2"
+      @address = Address.find(params[:order][:address_id])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
     end
   end
 
-  def complete
-  end
 
   def index
     @orders = Order.all
     @order_details = OrderDetail.all
   end
+
+  def complete
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
 
  private
   def order_params

@@ -32,22 +32,22 @@ Rails.application.routes.draw do
 
 
   devise_scope :public do
-  root to: "public/homes#top"
-  get 'about' => 'public/homes#about', as: 'about'
-  resources :addresses, only: [:index, :edit, :create, :destroy], module: 'public'
-  patch 'addresses/:id/edit' => 'public/addresses#update'
-  resources :orders, only: [:new, :index, :create, :show], module: 'public'
-  post 'orders/confirm' => 'public/orders#confirm'
-  get 'orders/complete' => 'public/orders#complete'
-  resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all], module: 'public'
-  delete 'cart_items' => 'public/cart_items#destroy_all'
-  resources :items, only: [:index, :show], module: 'public'
-  get 'customers/show' => 'public/customers#show'
-  get 'customers/edit' => 'public/customers#edit'
-  patch 'customers' => 'public/customers#update'
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
-  patch 'customers/withdraw' => 'public/customers#withdraw', as: 'withdraw'
-end
+    root to: "public/homes#top"
+    get 'about' => 'public/homes#about', as: 'about'
+    resources :addresses, only: [:index, :edit, :create, :destroy], module: 'public'
+    patch 'addresses/:id/edit' => 'public/addresses#update'
+    get 'orders/complete' => 'public/orders#complete'
+    resources :orders, only: [:new, :index, :create, :show], module: 'public'
+    post 'orders/confirm' => 'public/orders#confirm'
+    resources :cart_items, only: [:index, :update, :destroy, :create, :destroy_all], module: 'public'
+    delete 'cart_items' => 'public/cart_items#destroy_all'
+    resources :items, only: [:index, :show], module: 'public'
+    get 'customers/show' => 'public/customers#show'
+    get 'customers/edit' => 'public/customers#edit'
+    patch 'customers' => 'public/customers#update'
+    get 'customers/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/withdraw' => 'public/customers#withdraw', as: 'withdraw'
+  end
 
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations", only: [:new, :create],
