@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # config.web_console.whitelisted_ips = '219.99.252.44'
   config.hosts << "145e0da605b54284ab35c362a32f93a5.vfs.cloud9.us-east-1.amazonaws.com"
   # Settings specified here will take precedence over those in config/application.rb.
 
