@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
       @cart_items = current_customer.cart_items
       @cart_items.each do |cart_item|
        @order_detail = OrderDetail.new
-       @order_detail.item_id = cart_item.item_id
+       #@order_detail.item_id = cart_item.item_id
        @order_detail.order_id = @order.id
        @order_detail.price = cart_item.item.add_tax_price
        @order_detail.amount = cart_item.amount

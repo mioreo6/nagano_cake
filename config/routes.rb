@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    get 'order_details/update'
+  end
+  namespace :admin do
    resources :orders, only: [:show, :update]
   end
   namespace :admin do
