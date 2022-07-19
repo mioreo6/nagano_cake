@@ -13,6 +13,8 @@ class Public::CartItemsController < ApplicationController
      if cart_item.present?
        @cart_item.amount += cart_item.amount.to_i
        cart_item.destroy
+       @cart_item.save
+       redirect_to cart_items_path
      elsif @cart_item.save
        redirect_to cart_items_path
      else
