@@ -49,7 +49,7 @@
           <div class="col-2">
             <%= image_tag item.image, class:"img-fluid h-50 w-100" %></br>
             <%= item.name %></br>
-             ￥<%= item.price %>
+             ￥<%= item.price.to_s(:delimited) %>
           </div>
        <% end %>
 

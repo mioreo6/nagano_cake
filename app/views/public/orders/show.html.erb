@@ -7,7 +7,7 @@
   <div class="col-7">
     注文情報
   　<table class="table table-bordered ">
-   　 <tr class="table-secondary">
+   　 <tr>
       <td class="col-3" style="background-color: #ddd;">注文日</td>
       <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
      </tr>
@@ -40,7 +40,7 @@
        <table class="table table-bordered">
        　 <tr>
        　   <td class="col-1" style="background-color: #ddd;">商品合計</td>
-       　   <td class="col-1"><%= @total %></td>
+       　   <td class="col-1"><%= @order.total_payment.to_s(:delimited) %></td>
        　</tr>
        　<tr>
        　  <td class="col-1" style="background-color: #ddd;">配送料</td>
@@ -48,7 +48,7 @@
        　</tr>
        　<tr>
        　  <td class="col-1" style="background-color: #ddd;">ご請求額</td>
-       　  <td class="col-1"><%= @order.total_payment %></td>
+       　  <td class="col-1"><%= (@order.total_payment + @order.shipping_cost).to_s(:delimited) %></td>
        　</tr>
        </table>
        </div>
@@ -63,12 +63,14 @@
        <td class="col-1" style="background-color: #ddd;">数量</td>
        <td class="col-1" style="background-color: #ddd;">小計</td>
       </tr>
+      <% @total = 0 %>
        <% @order_details.each do |order_detail| %>
     <tr>
       <td><%= order_detail.item.name %></td>
-      <td><%= order_detail.item.add_tax_price %></td>
+      <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
       <td><%= order_detail.amount %></td>
-      <td> </td>
+      <td><%= order_detail.total_price.to_s(:delimited) %> </td>
+      <% @total += order_detail.total_price %>
     </tr>
        <% end %>
        </table>

@@ -10,7 +10,7 @@
 <div class="col-7">
   <h5 class="font-weight-bold"><%= @item.name %></h5>
    <%= @item.introduction %></br></br>
-   <span class="font-weight-bold">￥<%= @item.add_tax_price %></span><span class="small">(税込)</span></br></br>
+   <span class="font-weight-bold">￥<%= @item.add_tax_price.to_s(:delimited) %></span><span class="small">(税込)</span></br></br>
    <% if @item.is_active == true %>
     <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
 

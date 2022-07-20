@@ -12,7 +12,7 @@
    <div class="col-3">
    <%= image_tag item.image, class:"img-fluid h-50 w-100"  %></br>
    <%= link_to item.name, item_path(item.id) %></br>
-   ￥<%= item.price %>
+   ￥<%= item.price.to_s(:delimited) %>
    </div>
    <% end %>
    </div>

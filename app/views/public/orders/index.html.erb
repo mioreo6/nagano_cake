@@ -23,7 +23,7 @@
       </td>
 
       <td>
-        <%= order.total_payment + 800 %>円
+        <%= (order.total_payment + 800).to_s(:delimited) %>円
       </td>
       <td></td>
 　　　<td><%= link_to '表示する', order_path(order.id), class:'btn btn-primary' %></td>
