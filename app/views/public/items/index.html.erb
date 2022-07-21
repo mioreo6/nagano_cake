@@ -10,7 +10,9 @@
    <div class="d-flex flex-wrap mt-5">
    <% @items.each do |item| %>
    <div class="col-3">
+   <%= link_to item_path(item.id) do %>
    <%= image_tag item.image, class:"img-fluid h-50 w-100"  %></br>
+   <% end %>
    <%= link_to item.name, item_path(item.id) %></br>
    ￥<%= item.price.to_s(:delimited) %>
    </div>
